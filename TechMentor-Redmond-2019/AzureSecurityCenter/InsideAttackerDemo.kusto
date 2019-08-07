@@ -1,0 +1,26 @@
+//PowerShell and Regsvr32 attack
+
+// set starting point for hunt
+//Look at regsvr32 process activity
+SecurityEvent
+| where CommandLine contains "regsvr32"
+
+// Use project operator to limit returned data
+SecurityEvent  | where CommandLine contains "regsvr32"  | project TimeGenerated , Computer , Account , CommandLine , SubjectLogonId
+
+// Event ID 4688 (new process start)
+// Change the TimeGenerated
+SecurityEvent  | where TimeGenerated >= todatetime('2019-07-30T19:10:05') and TimeGenerated <= todatetime('2019-08-01T19:00:00') | where EventID == "4688" | project TimeGenerated , Computer , Account , CommandLine , SubjectLogonId   | order by TimeGenerated asc
+
+// Narrow it down to just Regsvr32 SubjectLogonId
+SecurityEvent  | where TimeGenerated >= todatetime('2019-07-30T19:10:05') and TimeGenerated <= todatetime('2019-08-01T19:00:00') | where EventID == "4688" | where SubjectLogonId == "0x17f021e67"  | project TimeGenerated , Computer , Account , CommandLine , SubjectLogonId   | order by TimeGenerated asc
+
+// Investigate PowerShell session
+SecurityEvent  | where Process contains "powershell.exe" and CommandLine contains " -enc" | extend b64 = extract("[A-Za-z0-9|+|=|/]{30,}", 0,CommandLine) | extend utf8_decode=base64_decodestring(b64) | project TimeGenerated , Computer, CommandLine, utf8_decode, SubjectLogonId
+
+// Look for event ID 5156 - created each time Windows Filtering Platform allows a program to connect to another process on the same computer using remote TCP or UDP port. Also Contains the "extend" operator which shows the encoded and decoded strings
+SecurityEvent  | where EventID == "5156"  | where tostring(EventData) contains "powershell"  | project Computer, EventData | extend X = parse_xml(EventData) | extend Application = X.EventData.Data[1]["#text"] | extend SourceAddress = X.EventData.Data[3]["#text"] | extend DestAddress = X.EventData.Data[5]["#text"] | project Computer, Application, SourceAddress, DestAddress
+
+// Check to see if any other computers are connecting to that same bad IP address
+SecurityEvent  | where EventID == "5156"  | where tostring(EventData) contains "152.199.4.33"  | project Computer, EventData | extend X = parse_xml(EventData) | extend Application = X.EventData.Data[1]["#text"] | extend SourceAddress = X.EventData.Data[3]["#text"] | extend DestAddress = X.EventData.Data[5]["#text"] | project Application, SourceAddress, DestAddress
+
