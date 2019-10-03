@@ -1,3 +1,10 @@
 # MyPresentations
-These are decks, scripts, and miscellaneous files that I have presented on during my career. All of these remain my property and I thank and humbly apologize to those that I failed to credit that have supplied material for them.
-Use at your own risk.
+get-childitem | % {
+    $GHPath = $_.FullName -replace 'C:\\Temp\\Events' -replace '\\','/' -replace '\s','%20'
+    "* [$(Split-Path $_ -Leaf)](https://github.com/jaapbrasser/events/tree/master$GHPath)"
+    $_ | ls -recurse | ? {$_.PSIsContainer -or $_.Extension -eq '.md'} | select -exp fullname | % {
+        $Count = ($_ -split '\\').Count -4
+        $GHPath = $_ -replace 'C:\\Temp\\Events' -replace '\\','/' -replace '\s','%20'
+        "$(" "*$Count*2)* [$(Split-Path $_ -Leaf)](https://github.com/jaapbrasser/events/tree/master$GHPath)"
+    }
+} | clip.exe
