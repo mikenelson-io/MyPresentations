@@ -1,0 +1,31 @@
+
+Get-Help
+Get-Command
+Get-Process | Get-Member
+Get-PSDrive
+
+Show-Command Get-Help
+
+Get-Module
+Get-Module -ListAvailable
+Install-Module Rubrik
+Import-Module Rubrik -Verbose
+
+Get-PSProvider
+Import-Module ActiveDirectory
+Get-PSProvider
+
+Get-Process
+Get-Process | Where-Object {$_.WorkingSet -gt 20000000}
+Get-Process | Format-Table -View priority
+
+Get-Help Start-Sleep
+Get-Help Start-Sleep -Parameter Seconds
+Get-Alias -Definition Start-Sleep
+sleep 3
+sleep 3;[console]::Beep()
+sleep 3; while(1){[console]::Beep()}
+
+code SimpleAlarmClock.ps1
+
+# Switch to ISE
