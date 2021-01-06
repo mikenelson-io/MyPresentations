@@ -1,7 +1,8 @@
+<h2>Welcome!</h2>
 Presentation, articles, and videos that I have done over the years.<br>
 
-Feel free to look and learn from my content, but if you do use it, please give credit where is due.
-All of this content is copyrighted by me, and where applicable, copyright the original authors.
+Feel free to look and (hopefully) learn from my content, but if you do use it, please give credit where it is due.
+All of this content is copyrighted by me, and where applicable, copyright the original authors I may have "borrowed" from and credited.
 
 Many Thanks - Mike
 
