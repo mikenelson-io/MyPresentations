@@ -1,0 +1,123 @@
+## Demo notes from December 2020 Data Protection Summit 2020 presentation pm WSL, Terminal, & PowerShell
+## Not to be confused as actual usable production code
+
+### Getting distros
+# from the Windows Store
+# Non-store sources
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+wsl --install
+
+Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-2004 -OutFile Ubuntu.appx -UseBasicParsing
+curl.exe -L -o ubuntu-2004.appx https://aka.ms/wsl-ubuntu-2004
+Add-AppxPackage .\ubuntu-2004.appx
+
+wsl --list --online
+
+wsl --install --distribution debian
+
+
+### Patrick Wu's psuwi module for Ubuntu
+Install-Module PsUWI
+Import-Module PsUWI
+New-UbuntuWSLInstance -Version 2 -NoUpdate
+Remove-UbuntuWSLInstance -Id
+
+## How do we know that WSL is allowing interoperability with Windows?
+cat /proc/sys/fs/binfmt_misc/WSLInterop
+
+### Where are the default distro folders?
+%localappdata%\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc
+
+### How to start a distro?
+# Via the icon, if downloaded from the Store
+# Copy the App shortcut to your dekstop if you wish by accessing this folder in a "Run" box
+shell:AppsFolder
+# Command line start
+wsl.exe
+wsl.exe -u -p command #can do root without sudo here -- maybe try gsudo (Github)
+# Or just call the distro name. Can't be used for custom distros
+Ubuntu-18.04
+
+#wsl --mount allows for adding a disk to all WSL 2 wsl_distros
+
+### What under the covers of the VMP (Virtual Machine Platform)?
+hcsdiag list
+# Run Windows sandbox and see another virtual VM container show up in the hcsdiag list - called 'Madrid'
+
+### Command line admin for Hyper-v
+hvc list
+
+### How to config?
+# .wslconfig file - new in v2 - located in %USERPROFILE%
+wsl command line
+# Set default distro
+wsl -l -v
+wsl --set-default ubuntu-20.04
+# Set default version
+wsl --set-default-version 2
+# Change default user to root
+Ubuntu-20.04 config --default-user root
+# Kill it
+wsl --terminate ubuntu-20.04
+# Shut it down
+wsl --shutdown ubuntu-20.04
+
+### Export / Import distro images - creates .vhdx files
+wsl --export Ubuntu demo1
+wsl --import Ubuntu-demo1 d:\wsl_distros demo1
+wsl -d Ubuntu-demo1
+
+### FS Redirector
+\\wsl$
+
+### linux to win paths In Ubuntu
+PATHLIST=/mnt/c/Users/:/mnt/c/temp/
+export WSLENV=$WSLENV:PATHLIST/l
+cmd.exe
+
+### Can also execute distro commands in automated fashion
+wsl -d Ubuntu-18.04 df -h
+
+### Multiple pipe and redirect between distros & OSs
+wsl -d debian fortune | wsl -d ubuntu cowsay
+wsl ip a | findstr /i "eth0"
+wsl ls -l /etc | wsl grep "timezone" > tz.txt
+wsl ls -la | Select-Object -First 10
+
+### FS/Drive interoperability
+\\wsl$
+explorer.exe .
+# folder shift-right click - Run linux shell
+# type wsl in explorer address bar
+
+#Mount-VHD -Path D:\wsl_distros\wsltestdisk.vhd
+#Write-Output "\\.\PhysicalDrive$((Mount-VHD -Path D:\wsl_distros\wsltestdisk.vhd -Passthru | Get-Disk).Number)"
+$a = "\\.\PhysicalDrive$((Mount-VHD -Path D:\wsl_distros\wsltestdisk.vhd -Passthru | Get-Disk).Number)"
+wsl --mount $a
+wsl --unmount $a
+Dismount-VHD -Path D:\wsl_distros\wsltestdisk.vhd
+
+### PowerShell and WSL
+# PowerShell not installed on distro, run from the Win side (Ubuntu)
+'/windir/c/Program Files/PowerShell/7/pwsh.exe'
+# PowerShell from within distro where it is installed
+pwsh get-process
+
+### Windows side batch or cmd - defaults to WINDIR
+cmd.exe /c [command]
+
+### Direct launch - most will need full path /mnt/c/Windows/...
+notepad.exe .
+explorer.exe .
+code.exe
+
+### Disable interoperability - not persistent across sessions
+echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
+
+### Re-enable interoperability - not persistent across sessions
+echo 1 > /proc/sys/fs/binfmt_misc/WSLInterop
+
+### Docker
+# Run from either native Linux Docker (dockerd) or Interop via Docker Desktop in Windows
+docker run adamoss/clippy The Data Platform Summit ROCKS!
+docker run --rm -it wernight/funbox asciiquarium
