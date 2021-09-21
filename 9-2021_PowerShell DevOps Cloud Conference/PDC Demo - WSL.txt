@@ -1,0 +1,58 @@
+PDC WSL demo
+
+Web pages for reference-
+    Patrick Wu - https://github.com/patrick330602
+    https://github.com/SvenGroot/WslManagementPS
+    https://github.com/sirredbeard/Awesome-WSL
+    https://github.com/ethanhs/WSL-Programs
+
+Terminal / Command line
+    commmand line
+        wsl.exe
+        wsl.exe --list
+        wsl.exe --list --verbose
+
+    Creating multiple distros
+        show PsUWI module - modifed from Patrick Wu's module
+            Get-Comand -Module PsUWI
+    automatically keeping distro up to date - could be in task manager
+        wsl -d "Ubuntu-18.04" -u root -e apt update
+        wsl -d "Ubuntu-18.04" -u root -e apt upgrade -y
+
+        How about using Sven Groot's WSL module? (not updated since 2019, but still relevent)
+            Get-Command -Module WSL
+            show Update-WslDistros.ps1
+    Tip: I have been hearing about WSLv2 clock skew happening. Manually run sudo hwclock -s to fix, or run clock script just like update script.
+
+WSLv1 vs WSLv2
+    bash <(wget --no-check-certificate -O - https://gist.githubusercontent.com/microhobby/91c72b03231ed3aad987cf4728cd3f8c/raw/a52f1829755396b2474a6e6d8325d3ca6a97add1/nench.sh)
+
+    dd if=/dev/zero of=/mnt/e/testfilev1 bs=1M count=2000
+    dd if=/dev/zero of=/mnt/e/testfilev2 bs=1M count=2000
+
+Practical
+    VSCode cross-platform example - in 20.04
+        code .
+        code --remote wsl+Ubuntu-18.04 /home/mike
+        code --diff wget-log wget-log.1
+    VSCode extension
+    file copies via explorer or command line
+    notepad.exe from wsl
+    utiltiies like grep, awk, sed, etc.
+    WSLg
+        gimp
+
+Un-Practical
+    Using Docker images
+    EasyWSL
+       d:\wsl_distros\easywsl\Release\easywsl.exe
+    WSLg (in-progress)
+        show Start menu apps
+        xeyes
+        xclock
+        fortune | cowsay
+        curl wttr.in
+
+    kali
+        sudo kex --win -s
+

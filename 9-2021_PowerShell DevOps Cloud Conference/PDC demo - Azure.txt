@@ -1,0 +1,74 @@
+PDC demo - Azure
+
+Links:
+https://shell.azure.com
+https://azurecharts.com
+https://microsoft.com/devicelogin
+https://resources.azure.com
+https://dataexplorer.azure.com
+https://github.com/Azure/azure-quickstart-templates
+
+
+portal
+    login
+    directories -- subscriptions
+    dashboards & home
+    settings
+    run down side bar & how to favorite
+        How to find services
+        Create a resource - Azure templates
+        - run a create on a 101 template
+        Resources
+        advisor
+        cost & billing
+        monitor
+        Arc
+        storage - lead to Cloud Shell
+
+
+Cloud shell
+    show access
+        portal
+        standlone browser
+        terminal
+        vscode
+        docker - docker run -it mcr.microsoft.com/azure-cloudshell /usr/bin/pwsh 
+
+    open shell and show lsb-release -a
+    run .\splash.sh
+    persisted storage
+        get-clouddrive
+        (Get-CloudDrive | Get-AzStorageAccount).Location
+        cd azure:\
+        do a ls, now do a dir
+        show img file in shell - then in portal/storage explorer
+        show downloaded acc_mike.img file in 7-zip
+        show open source image - https://github.com/Azure/CloudShell
+    show demo project putting shell in vnet storage https://github.com/Azure/azure-quickstart-templates/tree/master/demos/cloud-shell-vnet
+    You can even deploy it via Terraform - think "standard compliance"
+    Mobile app
+    tip - az fzf
+
+Graph API
+    show powershell module
+        Connect-MgGraph -Scopes "User.Read.All", "Group.ReadWrite.All"
+        Get-MgUser -Top 10 -Property Id, DisplayName, BusinessPhones | Format-Table Id, DisplayName, BusinessPhones
+        Get-MgApplication | Select-Object DisplayName, Appid, SignInAudience
+
+
+PowerShell & CLI
+	run from anywhere - vscode, powershell, command line, docker
+		docker run -it mcr.microsoft.com/azure-cli
+    az login - default is for OAuth authentication - can use device with az login --use-device-code
+    - JSON output = bad
+    Connect-AzAccount - (login-azaccount & add-azaccount aliased to this)
+    - almost a dozen different ways to connect with this cmdlet
+    - easiest - connect-azaccount -credential (get-credential) or connect-azaccount -usedeviceauthentication
+    - once connected, multiple subscriptions - get-azcontext
+    - set-azcontext "subscription1"
+    - Tip - az fzf group
+    - Tip - az * create --blah, blah ... --self-destruct 24h
+    -
+
+
+
