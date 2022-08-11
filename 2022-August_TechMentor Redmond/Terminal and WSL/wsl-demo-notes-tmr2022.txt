@@ -1,0 +1,97 @@
+Demo Prep:
+    import WslGen
+    import wsl module
+    start nextcloud
+        start session
+        start mysql
+        stat apache2
+        ip a
+    open Store
+    load docker Desktop
+
+
+wsl.exe
+    wsl --update
+    wsl -l
+    wsl -l -v
+
+    wsl
+    wsl -d debian
+    debian.exe
+    Show in Start menu
+
+    wsl -l -o
+    Open Store and show distro's available - compare
+    Must use Store or AppX bundle to install 22.04 or any others not listed
+
+Install 22.04
+
+close 22.04
+
+wsl --shutdown
+
+hcsdiag list
+
+Show new entry in Terminal
+
+open 22.04
+
+hcsdiag list
+
+wsl -l
+
+wsl --export Ubuntu-22.04 c:\wsl_distros\Ubuntu-export --vhd
+
+wsl --import Ubuntu-gold c:\wsl_distros\ubuntu c:\wsl_distros\Ubuntu-export
+
+Show WslGen for multiple copies of Ubuntu
+
+open explorer in Windows
+
+show linux context
+
+\\wsl$
+
+copy file
+
+in 22.04, type explorer.exe .
+
+wslpath -u 'c:\users'
+wslpath -w '/home/mike'
+
+type code .
+
+what about PowerShell? pwsh.exe
+
+While on the topic of PoSH - show WSL PowerShell module
+Show Update-WSLDistro.ps1 script
+
+wsl -u mike ls -l
+
+dir | wsl grep windows
+
+ipconfig.exe | grep IPv4 | cut -d: -f2
+
+wsl ip a | findstr /i "eth0"
+
+Docker Desktop
+    show integrations
+docker run adamoss/clippy TechMentor Rocks!
+docker run --rm -it wernight/funbox asciiquarium
+
+xcalc &
+
+gimp &
+
+octave --gui &
+
+blender &
+
+nextcloud
+sudo service mysql start
+sudo service apache2 start
+ip a
+
+kali seamless
+wsl -d kali-linux kex --sl --wtstart
+
