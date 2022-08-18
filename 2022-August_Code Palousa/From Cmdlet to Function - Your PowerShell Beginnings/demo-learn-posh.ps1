@@ -1,10 +1,23 @@
 Set-Location c:\powershell
 
+code $PROFILE
+
 Get-Process
 
 Show-Command Get-Process
 
 Get-Process | Get-Member
+
+# Pipeline
+notepad.exe
+Get-Process notepad | Stop-Process
+
+Get-ChildItem -Path *.txt | Where-Object {$_.length -gt 10000} | Sort-Object -Property length | Format-Table -Property name, length
+
+# Help
+Get-Help Get-Process
+Get-Help Get-Process -Examples
+Get-Help Get-Process -Full
 
 # Modules
 Get-Module
@@ -12,17 +25,6 @@ Get-Module -ListAvailable
 
 Import-Module WSL
 Get-Command -Module WSL
-
-# Help
-Get-Help Get-Process
-Get-Help Get-Process -Examples
-Get-Help Get-Process -Full
-
-# Pipeline
-notepad.exe
-Get-Process notepad | Stop-Process
-
-Get-ChildItem -Path *.txt | Where-Object {$_.length -gt 10000} | Sort-Object -Property length | Format-Table -Property name, length
 
 # Get-Help & start function
 Get-Help Start-Sleep
@@ -81,7 +83,7 @@ code .\Start-AlarmClock.ps1
 
 # Run it - doesn't do anything???
 Start-AlarmClock.ps1
-# Need to dot-source the function - it makes the function available in the global scope
+# Need to dot-source the script - it makes the function available in the global scope
 .\Start-AlarmClockScript.ps1
 # add seconds
 .\Start-AlarmClock -Seconds 3
@@ -122,6 +124,10 @@ code .\AlarmClockModule\AlarmClock.psd1
 Import-Module .\AlarmClockModule\AlarmClock.psd1 -Verbose
 
 # Module created!! Yea!
+
+.\Start-AlarmClock-MI.ps1
+
+.\Start-AlarmClock-Tetris.ps1
 
 # End demo
 

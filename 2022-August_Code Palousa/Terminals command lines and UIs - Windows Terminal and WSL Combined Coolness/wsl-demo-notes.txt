@@ -22,7 +22,6 @@ wsl.exe
 
     wsl -l -o
     Open Store and show distro's available - compare
-    Must use Store or AppX bundle to install 22.04 or any others not listed
 
 Install 22.04
 
@@ -40,9 +39,11 @@ hcsdiag list
 
 wsl -l
 
-wsl --export Ubuntu-22.04 c:\wsl_distros\Ubuntu-export --vhd
+wsl --export Ubuntu-22.04 c:\wsl_distros\Ubuntu-export.vhdx --vhd
 
-wsl --import Ubuntu-gold c:\wsl_distros\ubuntu c:\wsl_distros\Ubuntu-export
+show mount in explorer
+
+wsl --import Ubuntu-gold c:\wsl_distros\ubuntu c:\wsl_distros\Ubuntu-export.vhdx --vhd
 
 Show WslGen for multiple copies of Ubuntu
 
