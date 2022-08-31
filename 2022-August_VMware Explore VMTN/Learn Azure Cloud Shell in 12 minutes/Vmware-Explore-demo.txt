@@ -1,0 +1,78 @@
+show interfaces video & give facts
+    portal
+	shell.azure.com
+	standlone browser
+    standalone app
+    terminal
+    vscode
+    mobile app
+    Run CS local in Docker-Desktop:
+        docker run -it mcr.microsoft.com/azure-cloudshell:latest /usr/bin/pwsh
+        docker run -it mcr.microsoft.com/azure-cloudshell:latest /usr/bin/bash
+    Facts on Shell:
+        container
+        "Shell-as-a-Service"
+        40+ apps/languages
+        Monaco editor ("VSCode mini-me")
+        20 minute timeout
+        one per user account regardless of region
+        must have Azure File Share access
+        Based on Linux perms as user, not root
+        free, but storage is not (~ or $HOME)
+    
+Browser UI:
+	show powershell/bash switch
+    		from UI
+    		from command line
+	show common UI widgets - settings, upload/download, new session, editor. web preview
+
+In shell:
+    BASH - run lsb_release -a
+	. /systeminfo.sh
+	Storage:    
+		persisted storage -
+        		disk image is $HOME. It is 5GB (can be expanded, but not official)
+            		show img file in shell cd clouddrive\.cloudconsole
+            		then in portal/storage explorer
+            		show open source image - https://github.com/Azure/CloudShell
+        Clouddrive is mounted file share, location set at initial startup config. Can be changed using clouddrive mount
+            PoSH - get-clouddrive
+            PoSH - (Get-CloudDrive | Get-AzStorageAccount).Location
+            BASH - clouddrive mount -h
+   Azure:/
+		cd azure:\
+			Show subscription trail
+        do a ls, now do a dir
+            dir output is cached. Do dir -force to refresh cache.
+
+Networking:
+    CS can only access resources within its accessible vNets
+    To deploy CS inside of a specific vNet, follow MSDOCS
+	Check public IP of CS:
+		curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
+
+Apps/Languages:
+	terraform -version
+	git
+	kubectl
+	python -V
+	m365 help
+	docker run hello-world
+	Docker tip - cannot run as daemon. use docker-machine commands pre-installed to run with remote Docker host.
+
+AZ Tips:
+	run AZ CLI from anywhere - vscode, powershell, command line, docker
+		docker run -it mcr.microsoft.com/azure-cli
+            Connect-AzAccount - (login-azaccount & add-azaccount aliased to this)
+    -           almost a dozen different ways to connect with this cmdlet
+    -           easiest - connect-azaccount -credential (get-credential) or connect-azaccount -usedeviceauthentication
+    -           once connected, multiple subscriptions - get-azcontext
+    -           set-azcontext "subscription1"
+    - az fzf group
+
+To reset/clear CS:
+        via BASH - token=(az account get-access-token --resource "https://management.azure.com/" | jq -r ".access_token")
+curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
+
+        via PoSH - $token= (Get-AzAccessToken -Resource  https://management.azure.com/).Token
+Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
