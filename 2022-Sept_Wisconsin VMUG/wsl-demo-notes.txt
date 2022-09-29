@@ -1,0 +1,93 @@
+Demo Prep:
+    import WslGen
+    import wsl module
+    open Store
+    load docker Desktop
+
+
+wsl.exe
+    wsl --update
+    wsl -l
+    wsl -l -v
+
+    Show distro in Start menu
+
+    wsl -l -o
+    Open Store and show distro's available - compare
+
+Install 22.04
+
+close 22.04
+
+wsl --shutdown
+
+hcsdiag list
+
+Show new entry in Terminal
+
+open 22.04
+
+hcsdiag list
+
+wsl -l
+
+wsl --export Ubuntu-22.04 c:\wsl_distros\Ubuntu-export.vhdx --vhd
+
+show mount in explorer
+
+wsl --import Ubuntu-gold c:\wsl_distros\ubuntu c:\wsl_distros\Ubuntu-export.vhdx --vhd
+
+Show WslGen for multiple copies of Ubuntu
+	New-WslInstance -Version 2 -NoUpdate -InstanceName demovm
+	code create-multipledistros.ps1
+
+open explorer in Windows - show Linux
+
+show linux right-click context menu
+
+\\wsl$ in address bar
+
+copy file a file
+
+in 22.04, type explorer.exe .
+
+wslpath -u 'c:\users'
+wslpath -w '/home/mike'
+
+type code .
+
+what about PowerShell? In Debian - pwsh.exe
+
+While on the topic of PoSH - show WSL PowerShell module
+	Get-Command -Module WSL
+
+wsl -u mike ls -l
+
+dir | wsl grep windows
+
+ipconfig.exe | grep IPv4 | cut -d: -f2
+
+wsl ip a | findstr /i "eth0"
+
+Docker Desktop
+    show integrations
+docker run adamoss/clippy TechMentor Rocks!
+docker run --rm -it wernight/funbox asciiquarium
+
+xcalc &
+
+gimp &
+
+octave --gui &
+
+blender &
+
+nextcloud:
+sudo snap install nextcloud
+sudo nextcloud.manual-install mike password
+snap services
+
+http://localhost
+
+Show Update-WSLDistro.ps1 script
+
