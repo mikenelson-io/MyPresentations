@@ -1,0 +1,35 @@
+wt -?
+wt
+shift right-click context menu
+drag & drop folder to "+"
+
+UI
+    Tabs
+        open multiple
+        right-click - color, icon, rename - do with emoji (win-period), duplicate, split, export, find
+        Alt-click - new Pane
+        Shift-click - new window
+    Panes
+        Alt-shift-+ = vertical
+        Alt-Shift-- = horizontal
+        Ctrl-shift-W = close Pane
+    Command palette - Ctrl-Shift-P (VSCode)
+
+Settings
+    Default settings - Alt-click
+    Global settings
+        Always on Top good for Devs with background windows running
+    Default profile settings
+    Individual profile settings
+	Themes
+        https://terminalsplash.com/
+	Change tab appearance - positioning
+    json file - %localappdata%/packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe\LocalState
+        live updating of file changes
+        auto syntax checking
+    state file - generated profiles, current state, etc.
+
+Tricks
+    Mouse zoom - Crtl-scroll
+    Mouse background opacity - Ctrl-Shift-scroll
+    Run-As-Admin - use gsudo or similiar
