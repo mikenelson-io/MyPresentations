@@ -1,6 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Welcome!](#welcome)
 
@@ -16,5 +16,4 @@ Many Thanks - Mike
 
 https://mikenelson.io
 
-
-Link to YouTube video playlist - https://www.youtube.com/playlist?list=PLveSed1MaJkTb5imGwYVJeounfiB5sbfw 
+Link to YouTube video playlist - https://www.youtube.com/playlist?list=PLveSed1MaJkTb5imGwYVJeounfiB5sbfw
