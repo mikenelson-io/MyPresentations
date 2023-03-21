@@ -1,11 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
-
-- [Welcome!](#welcome)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <h2>Welcome!</h2>
 My collection of presentations, articles, audio, and videos that I have done over the years.<br>
 
@@ -17,3 +9,11 @@ Many Thanks - Mike
 https://mikenelson.io
 
 Link to YouTube video playlist - https://www.youtube.com/playlist?list=PLveSed1MaJkTb5imGwYVJeounfiB5sbfw
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- param::isNotitle::true:: -->
+
+
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
