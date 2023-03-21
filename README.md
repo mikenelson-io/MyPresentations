@@ -10,5 +10,9 @@ https://mikenelson.io
 
 Link to YouTube video playlist - https://www.youtube.com/playlist?list=PLveSed1MaJkTb5imGwYVJeounfiB5sbfw
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
