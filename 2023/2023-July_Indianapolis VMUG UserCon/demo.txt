@@ -1,0 +1,50 @@
+code-insiders Get-NicDetails.ps1
+
+code-insiders Get-NewAndremovedVMs.ps1
+
+code-insiders VMware-vCD-TenantReport.psd1
+
+Install-Module -Name VMware.PowerCLI -Scope CurrentUser
+
+Get-Module -Name VMware* | Format-Table Name, Version, ModuleType -AutoSize
+
+Get-Command -Module VMware.PowerCLI | Measure-Object
+
+Get-Command -Module VMware.VimAutomation.Core | Measure-Object
+
+Get-Command -Module VMware.PowerCLI -Name Get* | Measure-Object
+
+Get-Command -Module VMware* | Sort-Object Name | Format-Table Name, Version, CommandType -AutoSize
+
+Get-Command -Module VMware* | Measure-Object
+
+# Show auto-loading of modules
+# New session
+Get-Module
+
+Get-VM
+
+# How does it know which one to load?
+$env:PSModulePath
+# in order, alphabetical by module Name# See about_command_precedence
+
+# Cmdlet collision
+Get-Command Get-VM
+
+Import-Module Hyper-V -Verbose
+
+# Show Get-VM Cmdlet
+
+Get-Command Get-VM
+
+Get-Command Get-VM -All
+
+Remove-Module Hyper-V
+
+Get-Command Get-VM
+
+Import-Module Hyper-V -Prefix HV
+
+Get-Command -Module Hyper-V
+
+
