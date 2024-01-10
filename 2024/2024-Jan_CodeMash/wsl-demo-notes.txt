@@ -1,0 +1,89 @@
+Demo Prep:
+    import WslGen
+    import wsl module
+    open Store
+    load docker Desktop
+    https://github.com/ethanhs/WSL-Programs -- 5 to 8 years old!!
+    https://github.com/davatron5000/can-i-subsystem-it -- 7 years old!!
+    WSL on Telegram
+    https://www.reddit.com/r/bashonubuntuonwindows/
+    WSL ChatGPT Bot - https://chat.openai.com/g/g-HFTyqTWqE-wsl-wizard
+    https://system-informer.com/
+    https://github.com/sirredbeard/wslinternals
+    https://github.com/sirredbeard/Awesome-WSL
+    https://wslutiliti.es/wslu/install.html
+
+
+[Using wsl.exe](https://docs.microsoft.com/en-us/windows/wsl/reference)
+wsl.exe
+    wsl --update --pre-release
+    wsl -l
+    wsl -l -v
+
+    Show distro in Start menu
+
+    wsl -l -o
+    Open Store and show distro's available - compare
+
+[Install wsl distro](https://docs.microsoft.com/en-us/windows/wsl/install)
+# Install Alpine from Store
+# Show new entry in Terminal
+# Show new entry in Start menu
+
+# close Alpine
+
+[shutdown wsl](https://docs.microsoft.com/en-us/windows/wsl/reference/shutdown)
+# wsl --shutdown
+wsl --terminate Alpine
+# Tell "8 second rule"
+
+[virtual machine hcsdiag]
+hcsdiag list
+
+[hcsdiag virtual difference]
+# open Alpine
+hcsdiag list
+
+[export wsl distro](https://docs.microsoft.com/en-us/windows/wsl/reference/export)
+wsl -l
+wsl --export Ubuntu-22.04 c:\wsl_distros\Ubuntu-export.vhdx --vhd
+
+[wsl interoparability examples](https://docs.microsoft.com/en-us/windows/wsl/interop)
+# show mount in explorer
+# show Linux in Explorer
+# show linux right-click context menu
+\\wsl$ in address bar
+# in 22.04, type
+explorer.exe .
+# in 22.04, type
+code-insiders ./
+
+# what about PowerShell?
+# In Debian
+pwsh.exe
+
+[Interoperability](https://docs.microsoft.com/en-us/windows/wsl/interop)
+# use WSL default distro to run grep for the string "hmctl" in the local folder on Windows
+dir | wsl grep hmctl
+# Use Windows to pull the IP addresses of the WSL distro
+ipconfig.exe | wsl grep IPv4 | wsl cut -d: -f2
+# Use WSL from Windows to pull the eth0 config in the WSL distro
+wsl ip a | findstr /i "eth0"
+
+[Docker](https://docs.docker.com/docker-for-windows/wsl/)
+# show Docker in 22.04 & Docker Desktop
+docker run adamoss/clippy Code Mash Rocks!
+docker run --rm -it wernight/funbox asciiquarium
+
+[WSL Graphics](https://docs.microsoft.com/en-us/windows/wsl/tutorials/gui-apps)
+xeyes
+xcalc &
+gimp &
+blender &
+
+[WSL Microk8s](https://microk8s.io/)
+MicroK8s:
+microk8s status
+microk8s kubectl get all --all-namespaces
+
+
