@@ -36,8 +36,6 @@ Why use it?
 
 Features you will use
 
----
-
 Step\-by\-Step Demos
 
 ---
