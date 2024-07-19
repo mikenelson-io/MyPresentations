@@ -1,15 +1,15 @@
----
-__GitHub for Newbies__
+**GitHub for Newbies**
 
-<span style="color:#70CDDC"> __Mike Nelson__ </span>
+<span style="color:#70CDDC"> **Mike Nelson** </span>
 
-<span style="color:#70CDDC"> __Technical Evangelist__ </span>
+<span style="color:#70CDDC"> **Technical Evangelist** </span>
 
-<span style="color:#70CDDC"> __Pure Storage__ </span>
+<span style="color:#70CDDC"> **Pure Storage** </span>
 
 <span style="color:#70CDDC">Level Beginner</span>
+
 ---
----
+
 # Session Survey
 
 Your feedback is very important to us
@@ -25,8 +25,9 @@ Click “Session Evaluation”
 Thank you\!
 
 ![](img/GitHub%20for%20Newbies0.png)
+
 ---
----
+
 # Topics
 
 Git & GitHub & Gists
@@ -34,12 +35,13 @@ Git & GitHub & Gists
 Why use it?
 
 Features you will use
----
+
 ---
 
 Step\-by\-Step Demos
+
 ---
----
+
 # Git & GitHub
 
 ![](img/GitHub%20for%20Newbies1.jpg)
@@ -67,7 +69,7 @@ GitHub is a UI for features like CoPilot\, CodeSpaces\, Actions\, etc\.
 GitHub has a Marketplace\.
 
 ![](img/GitHub%20for%20Newbies3.png)
----
+
 ---
 
 # What is a GitHub Gist?
@@ -77,7 +79,7 @@ GitHub has a Marketplace\.
 Gists are a simple way to share code and pastes with others without all the overhead\.
 
 ![](img/GitHub%20for%20Newbies5.png)
----
+
 ---
 
 # Why use GitHub?
@@ -101,13 +103,13 @@ Gists are a simple way to share code and pastes with others without all the over
 ![](img/GitHub%20for%20Newbies14.png)
 
 CREATE CONVERSATIONS
----
+
 ---
 
 # Version (Revision) Control
 
 ![](img/GitHub%20for%20Newbies15.jpg)
----
+
 ---
 
 # Features to use
@@ -125,7 +127,7 @@ Commits
 Branches
 
 \*Releases\, CodeSpaces\, Actions\, Pages\, Secrets\, Projects\, Wikis\, etc\.
----
+
 ---
 
 # Step-by-Step Demos
@@ -149,7 +151,7 @@ Review & commit a PR
 Perform a merge
 
 Archive a repo
----
+
 ---
 
 # Many ways to skin a cat
@@ -218,8 +220,9 @@ change file
 create a PR
 commit the PR
 merge the PR
+
 ---
----
+
 # Session Survey
 
 Your feedback is very important to us
@@ -235,4 +238,3 @@ Click “Session Evaluation”
 Thank you\!
 
 ![](img/GitHub%20for%20Newbies22.png)
-
