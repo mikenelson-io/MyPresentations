@@ -88,15 +88,56 @@ Start PowerShell by typing `pwsh`.
 $PSVersionTable.PSVersion
 ```
 
+#### Open a CMD Prompt (Windows users):
+
+1. Open a CMD prompt by searching for "Command Prompt" in the Start menu.
+2. Type `pwsh` to start PowerShell from the CMD prompt.
+3. Change the window size and font settings.
+4. Exit PowerShell by typing `exit`.
+
+#### Open Windows Terminal (Windows users):
+
+1. Install Windows Terminal if not installed on your laptop.
+
+```powershell
+winget install --id Microsoft.WindowsTerminal -e
+```
+
+2. Open Windows Terminal by searching for "Windows Terminal" in the Start menu.
+3. Select the PowerShell profile to open a new PowerShell session.
+4. Use the tabs to switch between different PowerShell sessions.
+5. Use the dropdown menu to open a new PowerShell session or customize the terminal settings.
+
+#### Open Terminal (macOS/Linux users):
+
+1. Open the Terminal application.
+2. Type `pwsh` to start PowerShell from the terminal.
+3. Change the window size and font settings.
+4. Exit PowerShell by typing `exit`.
+
 ### Lab 2: Exploring Cmdlets
 
 #### Objective:
 
-Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets.
+Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets. Learn how to view and add aliases. Learn how to use basic navigation.
 
 #### Instructions:
 
-1. **Using Get-Help:**
+1. **Basic navigation:**
+
+   - Using tab completion:
+     - Type `Get-` and press `Tab` to see available cmdlets.
+     - Type `Get-` and press `Tab` twice to see all cmdlets starting with `Get-`.
+     - Type `Get-Pro` and press `Tab` to complete the cmdlet name.
+   - Using command history:
+     - Use the up and down arrow keys to navigate through command history.
+   - Use `Invoke-History` to run a command from history:
+
+   ```powershell
+   Invoke-History -Id 1
+   ```
+
+2. **Using Get-Help:**
 
    - Open PowerShell.
    - Display help for a cmdlet:
@@ -123,7 +164,7 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets.
    Update-Help
    ```
 
-2. **Using Get-Command:**
+3. **Using Get-Command:**
 
    - List all available cmdlets:
 
@@ -137,7 +178,7 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets.
    Get-Command *service*
    ```
 
-3. **Using Get-Member:**
+4. **Using Get-Member:**
 
    - Retrieve properties and methods of an object:
 
@@ -145,17 +186,40 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets.
    Get-Process | Get-Member
    ```
 
-4. **Using Select-Object:**
+5. **Using Select-Object:**
+
    - Select specific properties of an object:
+
    ```powershell
    Get-Process | Select-Object -Property Name, CPU
    ```
 
+6. **Viewing and Adding Aliases:**
+
+   - View all aliases:
+
+   ```powershell
+   Get-Alias
+   ```
+
+   - Add an alias for a cmdlet:
+
+   ```powershell
+   New-Alias -Name "gp" -Value "Get-Process"
+   ```
+
+   - Use the alias:
+
+   ```powershell
+   gp
+   ```
+
 #### Exercises to try:
 
-1. Use `Get-Help` to find information about the `Get-Service` cmdlet.
-2. Use `Get-Command` to find cmdlets related to files.
-3. Use `Get-Member` to explore properties and methods of the `Get-Service` output.
+1. Use `Get-Help` to find detailed information about the `Get-Command` cmdlet.
+2. Use `Get-Command` to find cmdlets that contain the verb `Get`.
+3. Use `Get-Member` to explore properties and methods of the `Get-Command` output.
+4. Create a new alias for the `Get-Command` cmdlet and use it.
 
 ### Lab 3: Using the Pipeline
 
@@ -187,7 +251,7 @@ Learn how to filter and sort data using the PowerShell pipeline.
    - Select specific properties of processes:
 
    ```powershell
-   Get-Process | Select-Object -Property Name, CPU
+   Get-Process | Select-Object -Property Name, SessionId, CPU
    ```
 
 4. **Combining Commands:**
@@ -198,11 +262,21 @@ Learn how to filter and sort data using the PowerShell pipeline.
    Get-Process | Where-Object { $_.CPU -gt 10 } | Sort-Object -Property CPU -Descending | Select-Object -first 5
    ```
 
+5. **Formatting the output:**
+
+   - Format the output as a table:
+
+   ```powershell
+   Get-Process | Format-Table -Property Name, SessionId, CPU
+   ```
+
 #### Exercises to try:
 
 1. List all services that are currently running.
 2. Sort the list of running processes by memory usage.
-3. Select the name and status of all services and display them.
+3. Select only the name and session ID of all running processes and display them in a table format.
+4. Combine the above commands to filter, sort, and select services.
+5. BONUS: Get all running processes and format the output as a table that is Grouped by the SessionId.
 
 ### Lab 4: Variables and Arrays
 
@@ -316,27 +390,7 @@ Learn how to write and run basic PowerShell scripts.
 2. Modify the script to handle cases where a non-existent process is queried.
 3. Save and run your script.
 
-### Lab 6: Automation
-
-#### Objective:
-
-Learn how to set up PowerShell to automate tasks.
-
-#### Instructions:
-
-1. **Automating Tasks:**
-   - Create a scheduled task:
-   ```powershell
-   $action = New-ScheduledTaskAction -Execute 'pwsh.exe' -Argument '-File C:\Scripts\MyScript.ps1'
-   $trigger = New-ScheduledTaskTrigger -Daily -At 7am
-   Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "MyDailyTask"
-   ```
-
-#### Exercises to try:
-
-1. Create a scheduled task to run a script at a specific time.
-
-### Lab 7: Working with Modules
+### Lab 6: Working with Modules
 
 #### Objective:
 
@@ -401,3 +455,23 @@ Learn how to install and create PowerShell modules.
 1. Install a module from the PowerShell Gallery.
 2. Create a custom module with a function that prints a greeting.
 3. Import and use your custom module.
+
+### Lab 7 (If time permits): Automation
+
+#### Objective:
+
+Learn how to set up PowerShell to automate tasks.
+
+#### Instructions:
+
+1. **Automating Tasks:**
+   - Create a scheduled task:
+   ```powershell
+   $action = New-ScheduledTaskAction -Execute 'pwsh.exe' -Argument '-File C:\Scripts\MyScript.ps1'
+   $trigger = New-ScheduledTaskTrigger -Daily -At 7am
+   Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "MyDailyTask"
+   ```
+
+#### Exercises to try:
+
+1. Create a scheduled task to run a script at a specific time.

@@ -16,7 +16,7 @@ scripting tasks.
 
   - History and evolution of PowerShell
 
-  - PowerShell vs. Command Prompt vs. Bash
+  - PowerShell vs. pwsh vs. Command Prompt vs. Bash
 
   - Installing and updating PowerShell
 
@@ -28,11 +28,11 @@ scripting tasks.
 
 - **Lab Exercise 1:**
 
-  - Installing PowerShell on Windows and Linux
+  - Installing PowerShell on Windows, macOS, and Linux
 
   - Opening and navigating PowerShell
 
-  - Using Windows Terminal
+  - Using the CMD Prompt and Terminal
 
 **Session 2: PowerShell Cmdlets and Syntax**
 
@@ -44,7 +44,7 @@ scripting tasks.
 
   - Aliases in PowerShell
 
-  - Using and understanding parameters
+  - Basic navigation in PowerShell
 
 - **Student Handout Information:**
 
@@ -56,9 +56,11 @@ scripting tasks.
 
   - Exploring the essential cmdlets
 
+  - Using Tab completion and command history
+
   - Using Get-Member to inspect objects
 
-  - Sorting and filtering data
+  - Sorting, filtering, and formatting data and outputs
 
 **Session 3: Working with the PowerShell Pipeline**
 
@@ -128,23 +130,7 @@ scripting tasks.
 
   - Running and troubleshooting scripts
 
-**Session 6: PowerShell Automation**
-
-- **Topics Covered:**
-
-  - Automating tasks with scheduled jobs and tasks and more
-
-- **Student Handout Information:**
-
-  - Automation tips and best practices
-
-- **Lab Exercise 6:**
-
-  - Automating a simple task using a script
-
-  - Automating more complex tasks
-
-**Session 7: Introduction to PowerShell Modules**
+**Session 6: Introduction to PowerShell Modules**
 
 - **Topics Covered:**
 
@@ -213,3 +199,19 @@ scripting tasks.
 - **Automation:** Automating tasks.
 
 - **Working with Modules:** Installing and creating PowerShell modules.
+
+**Session 7 (if time permits): PowerShell Automation**
+
+- **Topics Covered:**
+
+  - Automating tasks with scheduled jobs and tasks and more
+
+- **Student Handout Information:**
+
+  - Automation tips and best practices
+
+- **Lab Exercise 6:**
+
+  - Automating a simple task using a script
+
+  - Automating more complex tasks
