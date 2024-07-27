@@ -125,19 +125,28 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets. Lea
 
 1. **Basic navigation:**
 
-   - Using tab completion:
-     - Type `Get-` and press `Tab` to see available cmdlets.
-     - Type `Get-` and press `Tab` twice to see all cmdlets starting with `Get-`.
-     - Type `Get-Pro` and press `Tab` to complete the cmdlet name.
-   - Using command history:
-     - Use the up and down arrow keys to navigate through command history.
-   - Use `Invoke-History` to run a command from history:
+Using Windows Terminal:
 
-   ```powershell
-   Invoke-History -Id 1
-   ```
+- Using tab completion:
+  - Type `Get-` and press `Tab` to see available cmdlets.
+  - Type `Get-` and press `Tab` twice to see all cmdlets starting with `Get-`.
+  - Type `Get-Pro` and press `Tab` to complete the cmdlet name.
+- Using command history:
+  - Use the up and down arrow keys to navigate through command history.
+  - Use the `h` and `l` keys to navigate through command history.
+- Use `Get-Histry` and `Invoke-History` to show and run a command from history:
 
-2. **Using Get-Help:**
+```powershell
+Get-History
+Invoke-History -Id 1
+```
+
+- Use `Fn-F7` to view and select from command history.
+- Use `Ctrl-R` to search command history. (Requires PSReadline)
+- Run commands like Notepad, Calc, etc., from PowerShell.
+- Use `cd` to change directories and `dir` or `ls` to list files.
+
+1. **Using Get-Help:**
 
    - Open PowerShell.
    - Display help for a cmdlet:
@@ -164,7 +173,7 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets. Lea
    Update-Help
    ```
 
-3. **Using Get-Command:**
+2. **Using Get-Command:**
 
    - List all available cmdlets:
 
@@ -178,7 +187,7 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets. Lea
    Get-Command *service*
    ```
 
-4. **Using Get-Member:**
+3. **Using Get-Member:**
 
    - Retrieve properties and methods of an object:
 
@@ -186,7 +195,7 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets. Lea
    Get-Process | Get-Member
    ```
 
-5. **Using Select-Object:**
+4. **Using Select-Object:**
 
    - Select specific properties of an object:
 
@@ -194,7 +203,7 @@ Learn how to use Get-Help, Get-Command, Get-Member, & Select-Object cmdlets. Lea
    Get-Process | Select-Object -Property Name, CPU
    ```
 
-6. **Viewing and Adding Aliases:**
+5. **Viewing and Adding Aliases:**
 
    - View all aliases:
 
