@@ -2,11 +2,7 @@
 
 **Workshop Overview:**
 
-This all-day workshop is designed to introduce participants to the
-basics of Microsoft PowerShell. Through a combination of lectures,
-demonstrations, and hands-on lab exercises, you will learn how to use
-PowerShell for automation, configuration management, and general
-scripting tasks.
+This workshop is designed to introduce participants to the fundamentals of Microsoft PowerShell. It will include a combination of demonstrations and hands-on lab exercises. Attendees will learn how to use PowerShell for automation and general scripting tasks.
 
 **Session 1: Introduction to PowerShell**
 
@@ -16,7 +12,7 @@ scripting tasks.
 
   - History and evolution of PowerShell
 
-  - PowerShell vs. pwsh vs. Command Prompt vs. Bash
+  - PowerShell vs. Command Prompt vs. Bash
 
   - Installing and updating PowerShell
 
