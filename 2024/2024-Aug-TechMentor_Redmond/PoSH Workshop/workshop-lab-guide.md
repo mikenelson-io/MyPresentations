@@ -358,20 +358,20 @@ Learn how to write and run basic PowerShell scripts.
 
 #### Instructions:
 
-1. **Writing a Script:**
+1. **Writing a Simple Script:**
 
    - Open a text editor (e.g., Notepad).
    - Write a simple script:
 
    ```powershell
    # My first script
-   $greeting = "Greetings PowerShell!"
+   $greeting = "Greetings TechMentor PowerShell Workshop!"
    Write-Output $greeting
    ```
 
 2. **Saving a Script:**
 
-   - Save the file with a `.ps1` extension, e.g., `MyScript.ps1`.
+   - Save the file with a `.ps1` extension, e.g., `script1.ps1`.
 
 3. **Running a Script:**
 
@@ -380,18 +380,43 @@ Learn how to write and run basic PowerShell scripts.
    - Run the script:
 
    ```powershell
-   .\MyScript.ps1
+   .\script1.ps1
+   ```
+
+4. **Writing More Scripts:**
+
+- Open a text editor (e.g., Visual Studio Code).
+- Write the script and save it with a `.ps1` extension (eg. script2.ps1"):
+
+```powershell
+if ($PSVersionTable.PSVersion.Major -le 5) {
+   Write-Host "PowerShell version is 5 or lower"
+}
+elseif ($PSVersionTable.PSVersion.Major -gt 5) {
+   Write-Host "pwsh is version 7 or higher"
+}
+```
+
+3. **Running the Script:**
+
+   - Open PowerShell.
+   - Navigate to the directory where the script is saved.
+   - Run the script:
+
+   ```powershell
+   .\script2.ps1
    ```
 
 4. **Handling Errors:**
    - Add error handling to your script:
    ```powershell
    try {
-       Get-Process -Name "NonExistentProcess"
+       Get-Process -Name "NonExistentProcess" -ErrorAction Stop
    } catch {
-       Write-Output "Process not found."
+       Write-Host "Process not found."
    }
    ```
+   - What happens if you leave the `-ErrorAction Stop` parameter out?
 
 #### Exercises to try:
 
