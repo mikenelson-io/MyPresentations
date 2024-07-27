@@ -1,6 +1,6 @@
-###PowerShell References
+### PowerShell References
 
-Although this is not an all-inclusive list, it does highlight some of the most important references for PowerShell.
+*Although this is not an all-inclusive list, it does highlight some of the most important references for PowerShell.*
 
 #### History
 
