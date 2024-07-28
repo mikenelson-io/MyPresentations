@@ -163,8 +163,6 @@ foreach ($server in $servers) {
     Get-ChildItem -Path "\\$server\$logPath" -Recurse | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-7) } | Remove-Item -Force
 }
 
-
-
 ## SQL example
 # Script to connect to SQL Server and retrieve database names
    Import-Module SQLPS -DisableNameChecking
@@ -173,19 +171,12 @@ foreach ($server in $servers) {
    $databases | ForEach-Object { Write-Output $_.name }
 
 
-## Automating Philips Hue via API
-# https://developers.meethue.com/develop/hue-api/
-# Example: Script to change the color of a Hue light
-# Prerequisites: Obtain the bridge IP and username from the Hue API
-$baseUri = "https://<bridge_ip>/api/<username>"
-$lightId = "Your_Light_ID"
+## API Examples
 
-# Change light color
-$colorUri = "$baseUri/lights/$lightId/state"
-$colorBody = @{
-    on = $true
-    hue = 46920
-    sat = 254
-    bri = 254
-} | ConvertTo-Json
-Invoke-RestMethod -Uri $colorUri -Method PUT -Body $colorBody
+# Get sunrise and sunset times using a public API
+$latitude = 44.278819
+$longitude = −88.392625
+$apiUrl = "https://api.sunrise-sunset.org/json?lat=$latitude&lng=$longitude&formatted=0"
+$response = Invoke-RestMethod -Uri $apiUrl
+$sunrise = [datetime]$response.results.sunrise
+$sunset = [datetime]$response.results.sunset
