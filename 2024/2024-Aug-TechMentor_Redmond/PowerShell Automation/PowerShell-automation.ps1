@@ -1,3 +1,18 @@
+
+# Open Microsoft Graph explorer and web pages
+
+# Open PowerShell and connect to MSGraph
+Import-Module Microsoft.Graph.Authentication
+Import-Module Microsoft.Graph.Users
+Import-Module Microsoft.Graph.DirectoryObjects
+Connect-MgGraph -Scopes "User.Read.All", "Group.Read.All", "Directory.Read.All", "User.Invite.All", "Group.ReadWrite.All", "Directory.ReadWrite.All"
+Get-MgUser -All
+Get-MgUser | Where-Object DisplayName -like "Mike"
+Get-MgUser | Get-Member
+
+# Open swagger
+
+
 # Create a new user in AD
 ## Define user details
 $userName = "JohnDoe"
@@ -173,10 +188,4 @@ foreach ($server in $servers) {
 
 ## API Examples
 
-# Get sunrise and sunset times using a public API
-$latitude = 44.278819
-$longitude = −88.392625
-$apiUrl = "https://api.sunrise-sunset.org/json?lat=$latitude&lng=$longitude&formatted=0"
-$response = Invoke-RestMethod -Uri $apiUrl
-$sunrise = [datetime]$response.results.sunrise
-$sunset = [datetime]$response.results.sunset
+# Load script files
