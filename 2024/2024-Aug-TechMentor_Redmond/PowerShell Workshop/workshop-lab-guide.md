@@ -133,8 +133,7 @@ Using Windows Terminal:
   - Type `Get-Pro` and press `Tab` to complete the cmdlet name.
 - Using command history:
   - Use the up and down arrow keys to navigate through command history.
-  - Use the `h` and `l` keys to navigate through command history.
-- Use `Get-Histry` and `Invoke-History` to show and run a command from history:
+- Use `Get-History` and `Invoke-History` to show and run a command from history:
 
 ```powershell
 Get-History

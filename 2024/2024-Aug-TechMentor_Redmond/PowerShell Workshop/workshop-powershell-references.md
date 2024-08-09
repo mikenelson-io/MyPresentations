@@ -1,10 +1,10 @@
 ### PowerShell References
 
-*Although this is not an all-inclusive list, it does highlight some of the most important references for PowerShell.*
+_Although this is not an all-inclusive list, it does highlight some of the most important references for PowerShell._
 
 #### History
 
-- [The Monad Manifesto](https://devblogs.microsoft.com/powershell/the-monad-manifesto/)
+- [The Monad Manifesto](https://jsnover.com/Docs/MonadManifesto.pdf)
 
 #### Documentation
 

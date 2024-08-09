@@ -13,7 +13,7 @@ Get-MgUser | Get-Member
 # Open swagger
 
 
-# Create a new user in AD
+# Create a new user in AD and add to a group
 ## Define user details
 $userName = "JohnDoe"
 $firstName = "John"
@@ -26,6 +26,9 @@ New-ADUser -SamAccountName $userName -GivenName $firstName -Surname $lastName -A
 
 ## Add user to a group
 Add-ADGroupMember -Identity "GroupName" -Members $userName
+
+
+
 
 # Automate for multiple users via a .csv file
 $users = Import-Csv "C:\demo\poshautomate\newADusers.csv"
