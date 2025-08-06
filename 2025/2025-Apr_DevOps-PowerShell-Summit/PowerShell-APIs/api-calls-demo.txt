@@ -1,0 +1,9 @@
+./apicall.exe -url "https://swapi.dev/api/species/"
+./apicall.exe -url "https://swapi.dev/api/starships/"
+./apicall.exe -url "https://swapi.dev/api/planets/"
+./apicall.exe -url "https://swapi.dev/api/people/"
+./apicall.exe -url "https://swapi.dev/api/films/"
+./apicall.exe -url "https://swapi.dev/api/vehicles/"
+
+
+./apicall.exe -url "https://swapi.dev/api/species/" -apiKey "xxxx"
