@@ -1,6 +1,6 @@
 <div align="center">
 
-![Mike Nelson // Presentations Archive](./banner.svg)
+
 
 [![MIT License](https://img.shields.io/badge/License-MIT-00d4ff?style=flat-square&labelColor=050a0f)](LICENSE)
 [![Commits](https://img.shields.io/github/commit-activity/t/mikenelson-io/MyPresentations?style=flat-square&label=Commits&color=ff6b2b&labelColor=050a0f)](https://github.com/mikenelson-io/MyPresentations/commits/main)
